@@ -1,0 +1,6 @@
+Test:
+	It shows the basic usage of the library.
+	
+Main:
+	Busy, In and Out are highly identical runnable classes to change status accordingly.
+	URL (Name of the individual) is hard coded in each files.
