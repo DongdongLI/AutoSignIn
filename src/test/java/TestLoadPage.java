@@ -36,4 +36,23 @@ public class TestLoadPage {
 		
 		//System.out.println(list);
 	}
+	
+	@Test
+	public void testCheckStatus() throws FailingHttpStatusCodeException, MalformedURLException, IOException {
+		WebClient webClient = new WebClient();
+		HtmlPage page = webClient.getPage("http://pdf1.ndr.com:8080/inout/inout_handler.jsp?name=Dongdong_L&status=in");
+
+//		DomNodeList<DomElement> list= page.getElementsByTagName("input");
+//		
+//		list.get(2).click();
+		
+		String textBody = page.asText();
+		String statusText = textBody.substring(textBody.indexOf("Status:"), textBody.length());
+		//System.out.println(statusText);
+		String[] strArr = textBody.split("\n");
+		for(String str:strArr)
+			System.out.println(str);
+//		assertTrue(condition);
+		System.out.println(strArr[4]);
+	}
 }
